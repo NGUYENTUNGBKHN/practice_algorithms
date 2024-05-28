@@ -1,7 +1,14 @@
-TARGET_NAME=queue.exe
+
 BUILD_DIR=build
 OBJS_DIR=$(BUILD_DIR)/objs
 
+FLATFORM=$(shell uname)
+
+ifeq ($(FLATFORM),Linux)
+TARGET_NAME=queue
+else
+TARGET_NAME=queue.exe
+endif
 
 CC=gcc
 SIZE=size
