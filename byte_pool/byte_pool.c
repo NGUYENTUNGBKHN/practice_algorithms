@@ -13,7 +13,8 @@
  **                                                   INCLUDES
  ***************************************************************************************************************/
 #include "byte_pool.h"
-
+#include "stdlib.h"
+#include "string.h"
  /***************************************************************************************************************
  **                                         EXTERNAL FUNCTION PROTOTYPES
  ***************************************************************************************************************/
@@ -48,9 +49,29 @@
  **                                             FUNCTION DEFINITIONS
  ***************************************************************************************************************/
  
+void byte_pool_create(byte_pool_t *pool, void *memory_area, int memory_size)
+{
 
+    /* Clear pool comntrol pointer */
+    memset(pool, 0, sizeof(byte_pool_t));
 
+    /* Round the pool size */
+    memory_size = memory_size/ALIGN_BYTE*ALIGN_BYTE;
 
+    /* Set byte pool start */
+    pool->byte_pool_start = (char*)((void*)memory_area);
+
+}
+
+void byte_pool_allocate(byte_pool_t *pool, char **pointer, int allocated_size)
+{
+
+}
+
+void byte_pool_release(byte_pool_t *pool, char *pointer)
+{
+
+}
  
  /***************************************************************************************************************
  **                                                End of file

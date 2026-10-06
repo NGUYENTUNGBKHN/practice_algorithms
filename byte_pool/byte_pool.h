@@ -18,11 +18,22 @@ extern "C"
 
 /* CODE */
 
-typedef struct BYTE_POOL_S
-{
-    
+#define ALIGN_BYTE      4
+typedef struct BYTE_POOL_S byte_pool_t;
 
-}byte_pool_t;
+struct BYTE_POOL_S
+{
+    int byte_pool_available;            /* number of available bytes in the pool */
+    int byte_pool_fragment;             /* number of fragment in the pool */
+    char *byte_pool_list;               /* Pointer to head of byte pool list */
+    char *byte_pool_search;             /* Pointer to search available bytes */
+    char *byte_pool_start;              /* Start address byte pool area */
+    char *byte_pool_suspension_list;    /*  */
+    int byte_pool_suspension_cnt;   
+    struct BYTE_POOL_S  
+        byte_pool_created_next,
+        byte_pool_created_prev;
+};
 
 
 #ifdef __cplusplus
