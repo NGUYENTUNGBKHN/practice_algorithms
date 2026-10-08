@@ -28,11 +28,12 @@ struct BYTE_POOL_S
     char *byte_pool_list;               /* Pointer to head of byte pool list */
     char *byte_pool_search;             /* Pointer to search available bytes */
     char *byte_pool_start;              /* Start address byte pool area */
+    int   byte_pool_size;               /* Size of pool */
     char *byte_pool_suspension_list;    /*  */
     int byte_pool_suspension_cnt;   
-    struct BYTE_POOL_S  
-        byte_pool_created_next,
-        byte_pool_created_prev;
+    byte_pool_t 
+        *byte_pool_created_next,
+        *byte_pool_created_prev;
 };
 
 
